@@ -6,7 +6,8 @@
 
 LLM API Price Comperator 可以帮你便捷地比较不同LLM API服务商在指定输入输出下调用同一种模型的价格。它会自动获取美元/人民币汇率，允许用户输入服务商的余额、调用定价信息，并计算、比较相对于输入输出Token的成本。
 该项目的代码几乎完全由GPT-4-Turbo编写，我仅提供需求和建议。
-![PixPin_2024-04-14_19-50-25](https://github.com/CookSleep/LLM-API-Price-Comperator/assets/151028412/5f17869a-30ec-4f2e-9a88-d072477c7442)
+![PixPin_2024-04-14_21-00-27](https://github.com/CookSleep/LLM-API-Price-Comperator/assets/151028412/e30f5922-6d8b-4bdf-9b7d-efff7c6affa2)
+
 
 ## 功能特性
 
