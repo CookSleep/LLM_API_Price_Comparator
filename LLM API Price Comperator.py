@@ -22,11 +22,11 @@ class NumericLineEdit(QLineEdit):
     def __init__(self, placeholder_text='', parent=None):
         super().__init__(parent)
         self.setPlaceholderText(placeholder_text)
-    
+
     def focusOutEvent(self, event):
         text = self.text()
         if text and not validate_float(text):
-            QMessageBox.warning(self, "输入错误", "请输入有效的数字。")
+            QMessageBox.warning(self, "输入错误", "请输入有效数字。")
             self.clear()
         super().focusOutEvent(event)
 
@@ -34,8 +34,8 @@ class LLMComparisonTool(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("LLM API价格比较器")
-        self.setWindowIcon(QIcon("D:\\Price\\LLM API Price Comperator.ico"))  # Set the window icon
-        self.setGeometry(100, 100, 1200, 350)  # Adjust window size
+        self.setWindowIcon(QIcon("D:\\Price\\LLM API Price Comperator.ico"))
+        self.setGeometry(100, 100, 1200, 350)
         self.exchange_rate = 1.0
         self.initUI()
         self.get_exchange_rate()
@@ -96,7 +96,7 @@ class LLMComparisonTool(QMainWindow):
         self.github_link.setAlignment(Qt.AlignCenter)
         self.layout.addWidget(self.github_link)
 
-        self.clear_all_data()  # Initially setup with two default rows
+        self.clear_all_data()
 
     def add_provider_row(self):
         index = self.providers_grid.rowCount()
@@ -108,6 +108,7 @@ class LLMComparisonTool(QMainWindow):
         input_price = NumericLineEdit("仅数字")
         output_price = NumericLineEdit("仅数字")
         input_output_checkbox = QCheckBox()
+        input_output_checkbox.stateChanged.connect(lambda state, x=output_price: self.toggle_output_price(state, x))
         token_unit_combo = QComboBox()
         token_unit_combo.addItems(["1K token", "1M token"])
         delete_button = QPushButton("删除")
@@ -116,6 +117,12 @@ class LLMComparisonTool(QMainWindow):
         row_widgets = [provider_name, recharge_amount, currency_combo, balance, input_price, output_price, input_output_checkbox, token_unit_combo, delete_button]
         for i, widget in enumerate(row_widgets):
             self.providers_grid.addWidget(widget, index, i)
+
+    def toggle_output_price(self, state, output_price_widget):
+        if state == Qt.Checked:
+            output_price_widget.setDisabled(True)
+        else:
+            output_price_widget.setDisabled(False)
 
     def delete_provider_row(self, index):
         for j in range(9):
@@ -155,7 +162,7 @@ class LLMComparisonTool(QMainWindow):
                 currency = self.providers_grid.itemAtPosition(i, 2).widget().currentText()
                 balance = float(self.providers_grid.itemAtPosition(i, 3).widget().text())
                 input_price = float(self.providers_grid.itemAtPosition(i, 4).widget().text())
-                output_price = float(self.providers_grid.itemAtPosition(i, 5).widget().text()) if not self.providers_grid.itemAtPosition(i, 6).widget().isChecked() else input_price
+                output_price = float(self.providers_grid.itemAtPosition(i, 5).widget().text()) if self.providers_grid.itemAtPosition(i, 6).widget().checkState() == Qt.Unchecked else input_price
                 tokens_per_unit = {'1K token': 1000, '1M token': 1000000}[self.providers_grid.itemAtPosition(i, 7).widget().currentText()]
 
                 if currency == "USD":
