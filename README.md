@@ -1,12 +1,14 @@
 <h1 align="center">LLM API Price Comparator</h1>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/531f4503-6ddf-464a-b667-0dd2043ed18c" alt="LLM_API_Price_Comparator" width="200"/>
+  <img src="LLM_API_Price_Comparator.png" alt="LLM_API_Price_Comparator" width="200"/>
 </p>
 
 LLM API Price Comparator 可以帮你便捷地比较不同LLM API服务商在指定输入输出下调用同一种模型的价格。它会自动获取美元/人民币汇率，允许用户输入服务商的余额、调用定价信息，并计算、比较相对于输入输出Token的成本。
 该项目的代码几乎完全由GPT-4-Turbo编写，我仅提供需求和建议。
-![PixPin_2024-07-21_17-33-54](https://github.com/user-attachments/assets/a552a0d3-ee4f-4353-8ccf-25ee601f0d11)
+
+
+![示例](示例.png)
 
 ## 功能特性
 
