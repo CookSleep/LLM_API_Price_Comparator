@@ -9,7 +9,7 @@ LLM API Price Comparator 可以帮你便捷地比较不同LLM API服务商在指
 该项目的代码几乎完全由Claude 3.5 Sonnet、GPT-4-Turbo编写，我仅提供需求和建议。
 
 
-![示例](示例.png)
+![使用示例](使用示例.png)
 
 ## 功能特性
 
