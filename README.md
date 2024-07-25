@@ -8,6 +8,7 @@ LLM API Price Comparator 可以帮你便捷地比较不同LLM API服务商在指
 
 该项目的代码几乎完全由Claude 3.5 Sonnet、GPT-4-Turbo编写，我仅提供需求和建议。
 
+网页版 [LLM API Price Comparator Web](https://github.com/CookSleep/LLM_API_Price_Comparator_Web) 已推出！
 
 ![使用示例](使用示例.png)
 
